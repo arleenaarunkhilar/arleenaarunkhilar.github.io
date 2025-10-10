@@ -4,313 +4,343 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arleena Khilar — Portfolio</title>
-  <meta name="description" content="Arleena Khilar — Data & ML portfolio. Projects: Fake Review Detection, IdeaHub, Real-time Detection, Power BI Dashboards." />
 
   <!-- Retro / pixel fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* Colors & base */
-    :root{
-      --bg: #bfe6ff;        /* desktop wallpaper skyish */
-      --panel: #ffffff;     /* window inner bg */
-      --titlebar: #d8eefc;  /* light title bar */
-      --border: #1f3f62;    /* deep blue border */
-      --accent: #2b5a85;    /* darker blue */
-      --muted: #25414f;     /* text */
-      --shadow: 0 12px 30px rgba(16,40,60,0.12);
-      --tiny: 10px;
-      --radius: 10px;
+    :root {
+      --bg: #bfe6ff;
+      --panel: #ffffff;
+      --titlebar: #d8eefc;
+      --border: #1f3f62;
+      --accent: #2b5a85;
+      --muted: #25414f;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg),#d3edf9);color:var(--muted);-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:30px auto;padding:18px}
-
-    /* Desktop area hint */
-    .desktop{
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200"><rect width="100%" height="100%" fill="%23cfeeff"/></svg>') center/cover no-repeat;
-      padding:18px;border-radius:14px; border: 1px solid rgba(0,0,0,0.03);
+    * {
+      box-sizing: border-box;
     }
 
-    /* Window (card) */
-    .win{
-      background:var(--panel);
-      border-radius:12px;
-      border:3px solid var(--border);
-      box-shadow:var(--shadow);
-      margin:20px 0;padding:0;overflow:hidden;
-      transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .2s ease;
-      backdrop-filter: blur(2px);
+    html,
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, var(--bg), #d3edf9);
+      color: var(--muted);
+      -webkit-font-smoothing: antialiased;
     }
-    .win:hover{transform:translateY(-6px);box-shadow:0 26px 70px rgba(16,40,60,0.18)}
 
-    /* titlebar */
-    .titlebar{
-      display:flex;align-items:center;gap:12px;padding:8px 12px;background:linear-gradient(180deg,var(--titlebar),#f4fbff);border-bottom:2px solid rgba(0,0,0,0.04)
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-    .controls{display:flex;gap:8px;align-items:center}
-    .ctrl{width:14px;height:14px;border-radius:50%;display:inline-block;border:2px solid rgba(0,0,0,0.06)}
-    .ctrl.close{background:#ff5f57;border-color:rgba(0,0,0,0.12)}
-    .ctrl.min{background:#ffbd2e;border-color:rgba(0,0,0,0.08)}
-    .ctrl.max{background:#27c93f;border-color:rgba(0,0,0,0.08)}
-    .title{flex:1;font-family:'Press Start 2P', monospace;font-size:12px;color:var(--accent);letter-spacing:1px}
 
-    /* content inside window */
-    .win-body{display:flex;gap:18px;padding:18px}
-    .left{flex:1}
-    .right{width:320px}
-
-    /* avatar as pixel-sprite style */
-    .avatar{
-      width:96px;height:96px;border-radius:6px;border:3px solid rgba(37,65,79,0.06);overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.08)
+    /* Window-style sections */
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: var(--panel);
+      border: 3px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(16, 40, 60, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
 
-    h1.name{font-family:'Press Start 2P', monospace;margin:0;color:var(--border);font-size:18px}
-    .subtitle{font-family:'VT323', monospace;font-size:18px;margin-top:6px;color:var(--muted)}
-    p.lead{margin-top:10px;color:var(--muted);line-height:1.5}
+    section:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 70px rgba(16, 40, 60, 0.18);
+    }
 
-    /* small UI elements */
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#ffffff,#f4fbff);border:1px solid rgba(0,0,0,0.04);font-weight:600;font-size:12px}
-    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;font-size:13px}
+    /* Title bar */
+    .titlebar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: linear-gradient(180deg, var(--titlebar), #f4fbff);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.04);
+    }
 
-    /* project cards inside "window" */
-    .proj-list{display:grid;gap:12px}
-    .proj-item{background:#f8fdff;border-radius:8px;padding:10px;border:1px solid rgba(0,0,0,0.04);display:flex;flex-direction:column;transition:transform .22s ease}
-    .proj-item:hover{transform:translateY(-6px)}
-    .proj-item h3{margin:0;font-size:14px;color:var(--accent)}
-    .proj-item p{margin:8px 0 0;font-size:13px;color:var(--muted);line-height:1.4}
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
 
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#1f4f72);color:white;font-weight:700;margin-top:10px;text-decoration:none}
-    .btn-ghost{background:transparent;border:1px dashed rgba(37,65,79,0.12);padding:7px 10px;border-radius:8px;color:var(--muted);font-weight:700}
+    .ctrl {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+    }
 
-    /* skills */
-    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .skill-chip{background:#e8f7ff;padding:6px 8px;border-radius:8px;border:1px solid rgba(37,65,79,0.05);font-weight:600;font-size:13px;color:var(--accent)}
-    code.small{background:#f0f7fb;padding:2px 6px;border-radius:6px;font-size:12px;color:var(--accent)}
+    .ctrl.close {
+      background: #ff5f57;
+    }
 
-    /* sidebar small windows */
-    .side-win .win-body{flex-direction:column}
-    .education, .experience, .links{margin-bottom:12px}
+    .ctrl.min {
+      background: #ffbd2e;
+    }
 
-    /* retro gridline / dotted */
-    .timeline{height:36px;border-top:2px dashed rgba(37,65,79,0.06);margin-top:6px;padding-top:8px;color:var(--muted);font-size:13px}
+    .ctrl.max {
+      background: #27c93f;
+    }
 
-    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+    .title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 1px;
+    }
 
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease, transform .7s cubic-bezier(.2,.9,.2,1)}
-    .reveal.visible{opacity:1;transform:none}
+    /* Section content */
+    .content {
+      padding: 20px;
+    }
 
-    /* mobile */
-    @media (max-width:980px){
-      .win-body{flex-direction:column}
-      .right{width:100%}
-      .wrap{padding:10px}
+    h1,
+    h2,
+    h3 {
+      margin: 0 0 10px;
+      color: var(--accent);
+    }
+
+    p {
+      margin: 6px 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f4fbff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      font-weight: 600;
+      font-size: 12px;
+      margin-right: 6px;
+    }
+
+    /* Avatar */
+    .avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+      margin-bottom: 10px;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Grid layout for two-column sections */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 820px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Skills and chips */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .skill-chip {
+      background: #e8f7ff;
+      padding: 6px 8px;
+      border-radius: 8px;
+      border: 1px solid rgba(37, 65, 79, 0.05);
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    /* Projects */
+    .proj-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .proj-item {
+      background: #f8fdff;
+      border-radius: 8px;
+      padding: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .proj-item h3 {
+      margin: 0;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .proj-item p {
+      font-size: 13px;
+      margin: 6px 0;
+    }
+
+    /* Reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="desktop">
 
-      <!-- ABOUT window (top) -->
-      <section class="win reveal" id="about-win">
-        <div class="titlebar">
-          <div class="controls">
-            <span class="ctrl close" aria-hidden></span>
-            <span class="ctrl min" aria-hidden></span>
-            <span class="ctrl max" aria-hidden></span>
-          </div>
-          <div class="title">ABOUT.ME</div>
-          <div style="width:10px"></div>
-        </div>
-
-        <div class="win-body">
-          <div class="left">
-            <h1 class="name">ARLEENA KHILAR</h1>
-            <div class="subtitle">Aspiring Data & AI/ML professional — Python · PySpark · SQL</div>
-            <p class="lead">I build production-aware ML pipelines, visual dashboards, and web integrations. Experienced with PySpark/Databricks for scalable ETL, model development and deployment with Flask, and dashboarding with Power BI.</p>
-
-            <div class="meta">
-              <a class="pill" href="https://github.com/arleenaarunkhilar" target="_blank" rel="noopener">GitHub</a>
-              <a class="pill" href="ArleenaKhilar_CV.pdf" download>Download CV</a>
-            </div>
-
-            <div class="meta" style="margin-top:8px;font-size:13px">
-              <span>📍 Bhubaneswar, Odisha</span>
-              <span>✉️ arleenakhilar26@gmail.com</span>
-              <span>📞 +91 9702034998</span>
-            </div>
-          </div>
-
-          <div class="right">
-            <div style="display:flex;gap:12px;align-items:center">
-              <div class="avatar"><img src="./assets/image2.jpg" alt="Arleena" /></div>
-              <div style="flex:1">
-                <div style="font-weight:700;color:var(--accent);font-size:13px">Quick facts</div>
-                <div style="margin-top:8px;font-size:13px;color:var(--muted)">ML pipelines · Power BI · OpenCV · Flask </div>
-                <div style="margin-top:10px"><a class="btn-ghost" href="#projects">See Projects</a></div>
-              </div>
-            </div>
-
-            <div style="margin-top:14px" class="timeline">Education timeline — XIM University (B.Tech) · DAV Public School</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROJECTS window -->
-      <section class="win reveal" id="projects-win">
-        <div class="titlebar">
-          <div class="controls">
-            <span class="ctrl close"></span>
-            <span class="ctrl min"></span>
-            <span class="ctrl max"></span>
-          </div>
-          <div class="title">PROJECTS</div>
-        </div>
-
-        <div class="win-body" id="projects">
-          <div class="left">
-            <div class="proj-list">
-              <div class="proj-item">
-                <h3>Fake Review Detection & Sentiment Analysis</h3>
-                <p>End-to-end ML pipeline: dataset prep (10k+ reviews), deep-learning model training, evaluation, and Flask deployment (<code>fake_review_model.h5</code>, <code>sentiment_model.pkl</code>).</p>
-                <a class="btn-ghost" href="https://github.com/arleenaarunkhilar" target="_blank">View on GitHub</a>
-              </div>
-
-              <div class="proj-item">
-                <h3>IdeaHub — Project Recommendation Platform</h3>
-                <p>Flask app with SNA-based recommendations (node centrality & weighted edges), CSV-driven project DB and lightweight LLM integration plan.</p>
-                <a class="btn-ghost" href="https://github.com/arleenaarunkhilar" target="_blank">View on GitHub</a>
-              </div>
-
-              <div class="proj-item">
-                <h3>Real-time Object Detection (CCTV)</h3>
-                <p>OpenCV + YOLOv8 prototype for detection and alerting; optimized inference with web integration for live monitoring.</p>
-                <a class="btn-ghost" href="https://github.com/arleenaarunkhilar" target="_blank">View on GitHub</a>
-              </div>
-
-              <div class="proj-item">
-                <h3>Power BI — Data Professional Survey Dashboard</h3>
-                <p>Power Query transforms, DAX measures & interactive visuals for salary & satisfaction insights. Screenshots & .pbix in repo.</p>
-                <a class="btn-ghost" href="https://github.com/arleenaarunkhilar" target="_blank">View on GitHub</a>
-              </div>
-            </div>
-          </div>
-
-          <aside class="right side-win">
-            <div class="education win-body" style="padding:12px 0">
-              <strong style="color:var(--accent)">Education</strong>
-              <div style="margin-top:8px;font-size:13px;color:var(--muted)">
-                XIM University — B.Tech, Computer Science<br/>
-                GPA: 2022-Present(till 6th semester)<strong>8.46 / 10</strong><br/>
-                DAV Public School — HS 86% · HS (97%)
-              </div>
-            </div>
-
-            <div class="experience win-body" style="padding:12px 0">
-              <strong style="color:var(--accent)">Experience</strong>
-              <div style="margin-top:8px;font-size:13px;color:var(--muted)">
-                Engineering — AI & Data Intern, Deloitte/TCS (May 2025)<br/>
-                Web & AI/ML Intern, IG Drones (May 2024)
-              </div>
-            </div>
-
-            <div class="links win-body" style="padding:12px 0">
-              <strong style="color:var(--accent)">Quick Links</strong>
-              <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
-                <a class="btn-ghost" href="https://github.com/arleenaarunkhilar" target="_blank">GitHub</a>
-                <a class="btn-ghost" href="ArleenaKhilar_CV.pdf" download>Download CV</a>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <!-- SKILLS + EXPERIENCE window -->
-      <section class="win reveal" id="skills-win">
-        <div class="titlebar">
-          <div class="controls">
-            <span class="ctrl close"></span>
-            <span class="ctrl min"></span>
-            <span class="ctrl max"></span>
-          </div>
-          <div class="title">SKILLS & EDUCATION</div>
-        </div>
-
-        <div class="win-body">
-          <div class="left">
-            <h3 style="margin:0;color:var(--accent)">Skills</h3>
-            <div class="skills" style="margin-top:10px">
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">PySpark</span>
-              <span class="skill-chip">SQL</span>
-              <span class="skill-chip">Flask</span>
-              <span class="skill-chip">React</span>
-              <span class="skill-chip">Power BI</span>
-              <span class="skill-chip">OpenCV</span>
-              <span class="skill-chip">BERT / NLP</span>
-            </div>
-
-            <h3 style="margin-top:14px;color:var(--accent)">Certifications</h3>
-            <p style="margin-top:8px;color:var(--muted);font-size:13px">IoT & Machine Learning — BOLT IoT; Google IT Support — Coursera</p>
-          </div>
-
-          <div class="right">
-            <h3 style="margin:0;color:var(--accent)">Availability</h3>
-            <p style="margin-top:8px;color:var(--muted);font-size:13px">Open to internships & early-career roles in Data Engineering, ML Engineering, and Data Analytics. Willing to relocate and available for immediate join.</p>
-            <div style="margin-top:12px">
-              <a class="btn" href="ArleenaKhilar_CV.pdf" download>Download CV</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT / FOOTER window -->
-      
-      <footer>
-        <small>Retro UI inspired design • Built by Arleena — <a href="mailto:arleenakhilar26@gmail.com">arleenakhilar26@gmail.com</a></small>
-      </footer>
-
+  <!-- ABOUT -->
+  <section class="reveal" id="about">
+    <div class="titlebar">
+      <div class="controls">
+        <span class="ctrl close"></span>
+        <span class="ctrl min"></span>
+        <span class="ctrl max"></span>
+      </div>
+      <div class="title">ABOUT.ME</div>
     </div>
-  </div>
+    <div class="content grid">
+      <div>
+        <div class="avatar">
+          <img src="./assets/image2.jpg" alt="Arleena" />
+        </div>
+      </div>
+      <div>
+        <h1>ARLEENA KHILAR</h1>
+        <p>
+          Aspiring Data & AI/ML professional experienced in Python, SQL, Power BI, Flask, and React. I build data-driven systems and visual dashboards.
+        </p>
+        <p>
+          <span class="pill">B.Tech — XIM University (8.46 CGPA)</span>
+          <a class="pill" href="https://github.com/arleenaarunkhilar" target="_blank">GitHub</a>
+          <a class="pill" href="ArleenaKhilar_CV.pdf" download>Download CV</a>
+        </p>
+        <p>📍 Bhubaneswar • ✉️ arleenakhilar26@gmail.com • 📞 +91 9702034998</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="reveal" id="projects">
+    <div class="titlebar">
+      <div class="controls">
+        <span class="ctrl close"></span>
+        <span class="ctrl min"></span>
+        <span class="ctrl max"></span>
+      </div>
+      <div class="title">PROJECTS</div>
+    </div>
+    <div class="content">
+      <div class="proj-list">
+        <div class="proj-item">
+          <h3>Fake Review Detection & Sentiment Analysis</h3>
+          <p>End-to-end ML pipeline on 10k+ reviews — deep learning classification, sentiment analysis, and Flask deployment (<code>fake_review_model.h5</code>, <code>sentiment_model.pkl</code>).</p>
+        </div>
+        <div class="proj-item">
+          <h3>IdeaHub — Project Recommendation Platform</h3>
+          <p>Flask web app featuring SNA-based recommendations (centrality + weighted edges), CSV-based project DB, and planned LLM integration.</p>
+        </div>
+        <div class="proj-item">
+          <h3>Real-Time Object Detection (CCTV)</h3>
+          <p>OpenCV + YOLOv8 prototype for real-time CCTV feed detection and alerting, optimized inference and live web monitoring.</p>
+        </div>
+        <div class="proj-item">
+          <h3>Power BI — Data Professional Survey Dashboard</h3>
+          <p>Power Query transformations, DAX measures, interactive visuals for salary and satisfaction insights (.pbix included in repo).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & EXPERIENCE -->
+  <section class="reveal" id="edu">
+    <div class="titlebar">
+      <div class="controls">
+        <span class="ctrl close"></span>
+        <span class="ctrl min"></span>
+        <span class="ctrl max"></span>
+      </div>
+      <div class="title">EDUCATION.EXPERIENCE</div>
+    </div>
+    <div class="content grid">
+      <div>
+        <h2>Education</h2>
+        <p>
+          XIM University — B.Tech (CSE) • GPA 8.46/10<br />
+          DAV Public School — HS 97% • Class X 86%
+        </p>
+      </div>
+      <div>
+        <h2>Experience</h2>
+        <p>
+          Engineering AI & Data Intern — Deloitte & TCS (May 2025)<br />
+          Web & AI/ML Intern — IG Drones (May 2024)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="reveal" id="skills">
+    <div class="titlebar">
+      <div class="controls">
+        <span class="ctrl close"></span>
+        <span class="ctrl min"></span>
+        <span class="ctrl max"></span>
+      </div>
+      <div class="title">SKILLS.CERTS</div>
+    </div>
+    <div class="content">
+      <h2>Skills</h2>
+      <div class="skills">
+        <span class="skill-chip">Python</span>
+        <span class="skill-chip">PySpark</span>
+        <span class="skill-chip">SQL</span>
+        <span class="skill-chip">Flask</span>
+        <span class="skill-chip">React</span>
+        <span class="skill-chip">Power BI</span>
+        <span class="skill-chip">OpenCV</span>
+        <span class="skill-chip">BERT / NLP</span>
+      </div>
+
+      <h2 style="margin-top: 20px">Certifications</h2>
+      <p>IoT & Machine Learning — BOLT IoT • Google IT Support — Coursera</p>
+
+      <h2 style="margin-top: 20px">Availability</h2>
+      <p>Open to internships & early-career roles in Data Engineering, ML Engineering, and Data Analytics. Willing to relocate and available immediately.</p>
+    </div>
+  </section>
 
   <script>
-    // IntersectionObserver reveal
-    (function(){
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-          if(e.isIntersecting) e.target.classList.add('visible');
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add('visible');
         });
-      }, {threshold: 0.12});
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    })();
-
-    // Load latest repos (top 4)
-    async function loadRepos(){
-      try{
-        const res = await fetch('https://api.github.com/users/arleenaarunkhilar/repos?sort=updated&per_page=4');
-        const repos = await res.json();
-        // place extra repo cards into the Projects window list if available
-        if(Array.isArray(repos) && repos.length){
-          const leftCol = document.querySelector('#projects .left .proj-list');
-          repos.forEach(r => {
-            // don't duplicate if same name already present (simple check)
-            if(Array.from(leftCol.querySelectorAll('h3')).some(h => h.textContent.trim() === r.name)) return;
-            const div = document.createElement('div');
-            div.className = 'proj-item';
-            div.innerHTML = `<h3>${r.name}</h3><p>${r.description || ''}</p><a class="btn-ghost" href="${r.html_url}" target="_blank">View on GitHub</a>`;
-            leftCol.appendChild(div);
-          });
-        }
-      }catch(e){
-        console.warn('Could not fetch repos', e);
-      }
-    }
-    loadRepos();
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => obs.observe(el));
   </script>
 </body>
 </html>
